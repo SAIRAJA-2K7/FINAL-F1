@@ -1,0 +1,78 @@
+/* css/tokens.css */
+:root {
+    /* Colors - Primary Background (Warm Editorial Paper) */
+    --paper: #f2ece0;
+    --paper-1: #efe7da;
+    --paper-2: #e8e1d2;
+    
+    /* Colors - Text (Carbon Black) */
+    --ink: #0a0a0a;
+    --ink-2: #121212;
+    --ink-3: #4a4438;
+
+    /* Colors - Dense Data Panels (Graphite/Carbon) */
+    --carbon: #0a0a0a;
+    --carbon-1: #111111;
+    --carbon-2: #151515;
+    --carbon-3: #1a1a1a;
+
+    /* Colors - Accent */
+    --racing: #3671C6;
+    --racing-hot: #538af2;
+    --gold: #d4a017;
+    
+    /* Alert / Live Colors */
+    --live-red: #E8002D;
+    --yellow-flag: #FFD700;
+    --sector-purple: #B200FF;
+
+    /* Constructor Themes (Restrained) */
+    --mercedes: #27F4D2;
+    --ferrari: #E8002D;
+    --mclaren: #FF8000;
+    --redbull: #3671C6;
+    --williams: #64C4FF;
+    --haas: #B6BABD;
+    --alpine: #0093CC;
+    --audi: #00877C;
+    --racingbulls: #6692FF;
+    --aston: #229971;
+
+    /* Theme Dynamic Variable */
+    --theme-accent: var(--racing);
+
+    /* Spacing Rhythm (Apple-level discipline, 14px base context) */
+    --space-1: 0.5rem;   /* 8px */
+    --space-2: 0.875rem; /* 14px */
+    --space-3: 1.5rem;   /* 24px */
+    --space-4: 3rem;     /* 48px */
+    --space-5: 6rem;     /* 96px - Editorial breathing room */
+
+    /* Layout */
+    --panel-padding: var(--space-4);
+    --ribbon-height: 48px;
+
+    /* Borders & Radii */
+    --radius-sm: 2px;
+    --radius-lg: 4px; /* Reduced for a sharper editorial look */
+    --border-soft: 1px solid rgba(10, 10, 10, 0.08); /* Dark line on paper */
+    --border-dark-panel: 1px solid rgba(242, 236, 224, 0.1); /* Light line on carbon */
+
+    /* Motion */
+    --motion-fast: 0.18s cubic-bezier(0.25,1,0.5,1);
+    --motion-normal: 0.35s cubic-bezier(0.25,1,0.5,1);
+    --motion-slow: 0.6s cubic-bezier(0.25,1,0.5,1);
+}
+
+[data-team-theme="redbull"] { --theme-accent: var(--redbull); }
+[data-team-theme="ferrari"] { --theme-accent: var(--ferrari); }
+[data-team-theme="mercedes"] { --theme-accent: var(--mercedes); }
+[data-team-theme="mclaren"] { --theme-accent: var(--mclaren); }
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motion-fast: 0s;
+        --motion-normal: 0s;
+        --motion-slow: 0s;
+    }
+}

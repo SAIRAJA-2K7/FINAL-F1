@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-team-theme="redbull">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telemetry · Elite F1 Command Center</title>
+    <meta name="theme-color" content="#f2ece0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { corePlugins: { preflight: false } }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/typography.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./styles/telemetry.css" />
+</head>
+<body>
+    <div id="topbar" class="topbar-container"></div>
+
+    <main class="grid-container">
+        <section class="weekend-module hero-section telemetry-hero">
+            <div class="flex-between" style="align-items: flex-start; gap: var(--space-4)">
+                <div style="max-width: 45rem">
+                    <span class="meta-label">Telemetry Command Center</span>
+                    <h1 class="display-lg">Live engineering data, redesigned for luxury editorial presentation.</h1>
+                    <p class="meta-label" style="font-family: var(--font-serif); color: var(--ink-3); margin-top: var(--space-3); max-width: 38rem; font-size: 1rem; letter-spacing: 0; text-transform: none;">
+                        This page integrates the F1 Race Replay telemetry stream into your premium dashboard, delivering lap-by-lap speed, gear, throttle/brake, and replay controls without leaving the editorial experience.
+                    </p>
+                </div>
+                <div class="telemetry-summary-card">
+                    <span class="meta-label">Live Feed</span>
+                    <div id="stream-status" class="timing-number" style="margin-top: var(--space-3);">Connecting…</div>
+                    <ul class="telemetry-summary-list" id="session-metrics">
+                        <li><span class="meta-label">Race Lap</span><span class="timing-number" id="event-lap">—</span></li>
+                        <li><span class="meta-label">Race Leader</span><span class="timing-number" id="event-leader">—</span></li>
+                        <li><span class="meta-label">Peak Speed</span><span class="timing-number" id="event-speed">—</span></li>
+                        <li><span class="meta-label">Session Mode</span><span class="timing-number" id="event-status">—</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="weekend-module editorial-split" style="gap: var(--space-4)">
+            <div class="flex-col" style="gap: var(--space-4)">
+                <div class="telemetry-panel telemetry-track-card">
+                    <div class="flex-between telemetry-section-heading">
+                        <h2 class="session-title">Track Map</h2>
+                        <span class="meta-label">Live positions</span>
+                    </div>
+                    <div style="position: relative">
+                        <canvas id="track-map" class="track-canvas" width="960" height="240"></canvas>
+                        <div id="no-telemetry-overlay">No live telemetry detected. Run the local telemetry proxy and F1 Race Replay stream to enable live data.</div>
+                    </div>
+                </div>
+
+                <div class="telemetry-panel telemetry-chart-card">
+                    <div class="flex-between telemetry-section-heading">
+                        <h2 class="session-title">Speed Trace</h2>
+                        <span class="meta-label">Driver pace over the current replay window</span>
+                    </div>
+                    <canvas id="speed-trace" style="max-height: 200px"></canvas>
+                </div>
+
+                <div class="telemetry-metrics-grid">
+                    <div class="telemetry-summary-card">
+                        <h2 class="headline">Replay Controls</h2>
+                        <p class="meta-label" style="text-transform: none; color: var(--ink-3); margin-top: var(--space-2); letter-spacing: 0;">Use the command center controls to keep playback aligned with your premium broadcast workflow.</p>
+                        <div class="telemetry-controls" style="margin-top: var(--space-4);">
+                            <button type="button" data-control="pause">Pause</button>
+                            <button type="button" data-control="resume">Resume</button>
+                            <button type="button" data-control="refresh">Reconnect</button>
+                        </div>
+                        <div style="margin-top: var(--space-4);">
+                            <span class="meta-label">Control state</span>
+                            <div id="control-state" class="timing-number" style="margin-top: var(--space-2);">Live</div>
+                        </div>
+                    </div>
+                    <div class="telemetry-summary-card">
+                        <h2 class="headline">Driver telemetry</h2>
+                        <ul id="driver-summary" style="list-style:none; padding:0; margin-top: var(--space-3);"></ul>
+                    </div>
+                    <div class="telemetry-summary-card">
+                        <h2 class="headline">Session breadcrumbs</h2>
+                        <div style="display:grid; gap: var(--space-3); margin-top: var(--space-3);">
+                            <div><span class="meta-label">Weather</span><div class="timing-number">Dynamic from replay source</div></div>
+                            <div><span class="meta-label">Safety Car</span><div class="timing-number">Visualised on-track</div></div>
+                            <div><span class="meta-label">Track Status</span><div class="timing-number">Pulled from stream</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col" style="gap: var(--space-4)">
+                <div class="telemetry-panel telemetry-chart-card">
+                    <div class="flex-between telemetry-section-heading">
+                        <h2 class="session-title">Throttle / Brake</h2>
+                        <span class="meta-label">Power band dynamics</span>
+                    </div>
+                    <canvas id="power-bands" style="max-height: 200px"></canvas>
+                </div>
+
+                <div class="telemetry-panel telemetry-chart-card">
+                    <div class="flex-between telemetry-section-heading">
+                        <h2 class="session-title">Gear Flow</h2>
+                        <span class="meta-label">Shift pattern across the replay window</span>
+                    </div>
+                    <canvas id="gear-stream" style="max-height: 200px"></canvas>
+                </div>
+
+                <div class="telemetry-panel telemetry-chart-card">
+                    <div class="flex-between telemetry-section-heading">
+                        <h2 class="session-title">Leader Comparison</h2>
+                        <span class="meta-label">Top driver speed delta</span>
+                    </div>
+                    <canvas id="driver-comparison" style="max-height: 200px"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="./pages/telemetry.js"></script>
+</body>
+</html>

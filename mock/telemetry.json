@@ -1,0 +1,10 @@
+[
+  { "timestamp": "0.0", "speed": 100, "throttle": 100, "brake": 0, "n_gear": 3, "rpm": 10500, "drs": 0 },
+  { "timestamp": "1.2", "speed": 180, "throttle": 100, "brake": 0, "n_gear": 5, "rpm": 11200, "drs": 0 },
+  { "timestamp": "2.4", "speed": 240, "throttle": 100, "brake": 0, "n_gear": 7, "rpm": 11800, "drs": 1 },
+  { "timestamp": "3.5", "speed": 310, "throttle": 100, "brake": 0, "n_gear": 8, "rpm": 12100, "drs": 1 },
+  { "timestamp": "4.8", "speed": 325, "throttle": 0, "brake": 100, "n_gear": 8, "rpm": 11900, "drs": 0 },
+  { "timestamp": "5.5", "speed": 140, "throttle": 20, "brake": 80, "n_gear": 4, "rpm": 9500, "drs": 0 },
+  { "timestamp": "6.2", "speed": 110, "throttle": 40, "brake": 0, "n_gear": 3, "rpm": 8800, "drs": 0 },
+  { "timestamp": "7.0", "speed": 160, "throttle": 100, "brake": 0, "n_gear": 4, "rpm": 10200, "drs": 0 }
+]

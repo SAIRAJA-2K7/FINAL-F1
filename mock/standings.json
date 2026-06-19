@@ -1,0 +1,22 @@
+[
+    {
+      "Driver": { "driverId": "verstappen", "permanentNumber": "1", "code": "VER", "givenName": "Max", "familyName": "Verstappen" },
+      "Constructor": { "name": "Red Bull" },
+      "points": "110", "position": "1", "wins": "3"
+    },
+    {
+      "Driver": { "driverId": "leclerc", "permanentNumber": "16", "code": "LEC", "givenName": "Charles", "familyName": "Leclerc" },
+      "Constructor": { "name": "Ferrari" },
+      "points": "92", "position": "2", "wins": "1"
+    },
+    {
+      "Driver": { "driverId": "norris", "permanentNumber": "4", "code": "NOR", "givenName": "Lando", "familyName": "Norris" },
+      "Constructor": { "name": "McLaren" },
+      "points": "85", "position": "3", "wins": "0"
+    },
+    {
+      "Driver": { "driverId": "russell", "permanentNumber": "63", "code": "RUS", "givenName": "George", "familyName": "Russell" },
+      "Constructor": { "name": "Mercedes" },
+      "points": "68", "position": "4", "wins": "0"
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+      "round": "5",
+      "raceName": "Miami Grand Prix",
+      "Circuit": {
+        "circuitName": "Miami International Autodrome",
+        "Location": { "locality": "Miami", "country": "USA" }
+      },
+      "date": "2026-05-03", "time": "20:00:00Z",
+      "FirstPractice": { "date": "2026-05-01", "time": "16:00:00Z" },
+      "SprintQualifying": { "date": "2026-05-01", "time": "20:30:00Z" },
+      "Sprint": { "date": "2026-05-02", "time": "16:00:00Z" },
+      "Qualifying": { "date": "2026-05-02", "time": "20:00:00Z" }
+    },
+    {
+      "round": "6",
+      "raceName": "Emilia Romagna Grand Prix",
+      "Circuit": {
+        "circuitName": "Autodromo Enzo e Dino Ferrari",
+        "Location": { "locality": "Imola", "country": "Italy" }
+      },
+      "date": "2026-05-17", "time": "13:00:00Z",
+      "FirstPractice": { "date": "2026-05-15", "time": "11:30:00Z" },
+      "SecondPractice": { "date": "2026-05-15", "time": "15:00:00Z" },
+      "ThirdPractice": { "date": "2026-05-16", "time": "10:30:00Z" },
+      "Qualifying": { "date": "2026-05-16", "time": "14:00:00Z" }
+    }
+]
