@@ -1,1 +1,1 @@
-# FINAL-F1
+🏎️ A real-time Formula 1 telemetry and race analytics dashboard featuring live race replay visualization, driver performance insights, interactive telemetry graphs, speed analysis, position tracking, and an immersive F1-inspired user experience.
