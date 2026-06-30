@@ -546,6 +546,13 @@
             animation: fadeUpSlow 1s ease both 2.8s;
         }
 
+        .hero-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
         .live-badge {
             display: inline-flex;
             align-items: center;
@@ -566,6 +573,34 @@
             background: #fff;
             border-radius: 50%;
             animation: blink 1.6s ease infinite;
+        }
+
+        .telemetry-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: var(--carbon);
+            color: var(--paper);
+            text-decoration: none;
+            border: 1px solid var(--carbon);
+            font-weight: 700;
+            letter-spacing: .16em;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .telemetry-cta:hover,
+        .telemetry-cta:focus-visible {
+            background: var(--racing);
+            border-color: var(--racing);
+            color: #fff;
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .telemetry-cta .telemetry-arrow {
+            font-size: 14px;
+            line-height: 1;
         }
 
         .race-hero {
@@ -1644,6 +1679,10 @@
                 align-items: flex-start;
                 gap: 14px;
             }
+
+            .hero-actions {
+                width: 100%;
+            }
         }
 
         @media (max-width: 540px) {
@@ -2508,7 +2547,10 @@
         </div>
 
         <div class="hero-sub">
-            <span class="live-badge">Live Edition</span>
+            <div class="hero-actions">
+                <span class="live-badge">Live Edition</span>
+                <a class="telemetry-cta" href="telemetry.html">Open Telemetry <span class="telemetry-arrow">→</span></a>
+            </div>
             <span>Drivers · Constructors · Paddock · Calendar</span>
         </div>
     </section>
